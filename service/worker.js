@@ -17,9 +17,10 @@ const worker = function (){
 
                 setInterval(async () => { // каждые 5 секунд перезаписывается название очередей
                     console.log('###############---------------RESTART---------------################')
-                    let queue1 = await namesQueues() // название очередей
 
-                    for (let queue of queue1) { /// цикл перебора массив имен очередей
+                    let queueNames = await namesQueues() // название очередей
+
+                    for (let queue of queueNames) { /// цикл перебора массив имен очередей
 
                         channel.assertQueue(queue, {
                             durable: true  // Это гарантирует, что очередь будет объявлена перед попыткой ее использования. после перезгрузки очередь не будет потяряно
