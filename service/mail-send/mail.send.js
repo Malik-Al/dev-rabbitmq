@@ -30,14 +30,17 @@ const nodemailer = require('nodemailer')
 
 
 
+//const transporter = nodemailer.createTransport('smtp://malikimenov@outluok.com%40outlook.com:0159kb@smtp-mail.outlook.com');
 
 const transporter = nodemailer.createTransport({
+    //service: "hotmail",
     host: 'smtp-mail.outlook.com',
     port: 587,
-    secure: false,
+    // secure: false,
+    secureConnection: false,
     tls: {
-        rejectUnauthorized: false,
-        //ciphers:'SSLv3'
+        //rejectUnauthorized: false,
+        ciphers:'SSLv3'
     },
     auth: {
         user: 'malikimenov@outluok.com',
@@ -47,7 +50,7 @@ const transporter = nodemailer.createTransport({
 
 
 
-async function mailSend(toMail, message) {
+exports.mailSend = async function (toMail, message) {
     try {
         // console.log('transporter', transporter)
       return await transporter.sendMail({
@@ -78,7 +81,6 @@ async function res(){
   return result
 }
 
-res()
 
 
 
