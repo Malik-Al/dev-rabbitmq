@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer')
 const {PORT, HOST, TITLE_URL, USER} = require('../../config')
 
-
 const transporter = nodemailer.createTransport({
     host: HOST,
     port: PORT,
@@ -15,13 +14,7 @@ exports.mailSend = async function (toMail, message) {
             from: USER,
             to: toMail,
             subject: TITLE_URL,
-            html:
-                `
-                <div>
-                    <h1>Вам отправлено сообщение</h1>
-                    <span>${message}</span>
-                </div>
-                `
+            html: message
         })
 }
 

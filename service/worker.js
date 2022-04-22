@@ -1,10 +1,11 @@
 let amqp = require('amqplib/callback_api')
+const {RABBIT_URL} = require('../config')
 const {namesQueues} = require('./message-send')
-const URL = process.env.RABBIT_URL
+
 
 const worker = function (){
     try {
-        amqp.connect(URL, function (error0, connection){
+        amqp.connect(RABBIT_URL, function (error0, connection){
             if(error0){
                 throw error0
             }

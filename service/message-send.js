@@ -7,7 +7,6 @@ exports.createChannelName = function (msg) { // найти и объединит
     try {
         let channelName = []
         if (!Array.isArray(msg)){
-            //console.log('sourceName----Object----------')
             const {source, sourceType} = msg
             channelName.push(source, sourceType)
             return channelName.join('')
@@ -21,9 +20,8 @@ exports.createChannelName = function (msg) { // найти и объединит
 exports.addIdObjects = function (msg){  // добавление каждому объекту уникальный id
     try {
         if (!Array.isArray(msg)){
-            //console.log('add---Id---Object----------')
-            for (let msgElement in msg.alternativeRequisites) {
-                msg.alternativeRequisites[msgElement].id = uuid.v4()
+            for (let msgElement in msg.array) {
+                msg.array[msgElement].id = uuid.v4()
             }
             return msg
         }
