@@ -27,7 +27,6 @@ exports.send = function (msg){
                     channel.sendToQueue(queue, Buffer.from(JSON.stringify(msgElement)), { // добавить сообщение в очерердь
                         persistent: true,
                     })
-
                     console.log("POST Sent '%s'", msgElement)
                 }
                 channel.close()

@@ -3,7 +3,6 @@ const axios = require('axios');
 const {RABBIT_URL_ADMIN} = require('../config')
 
 
-
 exports.createChannelName = function (msg) { // найти и объединить значение source source_type на выходе названипе очереди
     try {
         let channelName = []
@@ -29,7 +28,6 @@ exports.addIdObjects = function (msg){  // добавление каждому �
     }catch (e) {
        return new Error(e)
     }
-
 }
 
 
